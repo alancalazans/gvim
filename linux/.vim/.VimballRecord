@@ -1,4 +1,0 @@
-snippy_plugin.vba: call delete('C:\gVimPortable\Data\settings\vimfiles/plugin/snippetsEmu.vim')|call delete('C:\gVimPortable\Data\settings\vimfiles/doc/snippets_emu.txt')
-DrawIt.vba: call delete('/home/calazans/.vim/plugin/DrawItPlugin.vim')|call delete('/home/calazans/.vim/plugin/cecutil.vim')|call delete('/home/calazans/.vim/autoload/DrawIt.vim')|call delete('/home/calazans/.vim/doc/DrawIt.txt')
-cecutil.vba: call delete('/home/calazans/.vim/plugin/cecutil.vim')|call delete('/home/calazans/.vim/doc/cecutil.txt')
-supertab.vmb: call delete('/home/calazans/.vim/doc/supertab.txt')|call delete('/home/calazans/.vim/plugin/supertab.vim')

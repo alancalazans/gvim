@@ -2,3 +2,5 @@
 .vimrc text eol=lf
 _vimrc text eol=cr
 .vim text eol=lf
+linux.vimrc text eol=lf
+

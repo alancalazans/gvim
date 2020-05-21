@@ -139,7 +139,8 @@ if has("gui_running")
 	elseif has("x11")
 		" Para GTK
 		"set guifont=DejaVu\ Sans\ Mono\ Book\ 11
-		set guifont=Courier\ New\ 11
+		set guifont=Monospace\ 11
+		"set guifont=Courier\ New\ 11
 	elseif has("gui_win32")
 		" Para Windows
 		" set guifont=Consolas:h12:cANSI

@@ -3,4 +3,4 @@
 _vimrc text eol=cr
 .vim text eol=lf
 linux.vimrc text eol=lf
-
+install-custom.sh eol=lf

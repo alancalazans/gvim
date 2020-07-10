@@ -159,9 +159,9 @@ endif " Conclui sobre a existência de uma interface gráfica
 "											Função para trocar o tema de cores
 "								 A primeira linha refere-se ao esquema padrão
 "==============================================================================
-colorscheme luinnar
+colorscheme doriath
 function! ToggleColorscheme()
-	if g:colors_name == 'luinnar'
+	if g:colors_name == 'doriath'
 		colorscheme dracula
 	elseif g:colors_name == 'dracula'
 		colorscheme koehler
@@ -186,7 +186,7 @@ function! ToggleColorscheme()
 	elseif g:colors_name == 'railscasts'
 		colorscheme monokai-phoenix
 	elseif g:colors_name == 'monokai-phoenix'
-		colorscheme luinnar
+		colorscheme doriath
 	endif
 endfunction
 nmap <silent>\t :call ToggleColorscheme()<cr>:echo g:colors_name<cr>

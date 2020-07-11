@@ -159,34 +159,20 @@ endif " Conclui sobre a existência de uma interface gráfica
 "											Função para trocar o tema de cores
 "								 A primeira linha refere-se ao esquema padrão
 "==============================================================================
-colorscheme doriath
+colorscheme southernlights
 function! ToggleColorscheme()
-	if g:colors_name == 'doriath'
-		colorscheme dracula
-	elseif g:colors_name == 'dracula'
-		colorscheme koehler
-	elseif g:colors_name == 'koehler'
-		colorscheme blackboard
-	elseif g:colors_name == 'blackboard'
-		colorscheme donbass
-	elseif g:colors_name == 'donbass'
-		colorscheme chocolateliquor
-	elseif g:colors_name == 'ChocolateLiquor'
-		colorscheme wombat
-	elseif g:colors_name == 'wombat'
-		colorscheme distinguished
-	elseif g:colors_name == 'distinguished'
-		colorscheme jellybeans
-	elseif g:colors_name == 'jellybeans'
-		colorscheme oceandeep
-	elseif g:colors_name == 'oceandeep'
-		colorscheme atom-dark
-	elseif g:colors_name == 'atom-dark'
-		colorscheme railscasts
-	elseif g:colors_name == 'railscasts'
-		colorscheme monokai-phoenix
-	elseif g:colors_name == 'monokai-phoenix'
-		colorscheme doriath
+	if g:colors_name == 'southernlights'
+		colorscheme cyberpunk
+	elseif g:colors_name == 'cyberpunk'
+		colorscheme midnight
+	elseif g:colors_name == 'midnight'
+		colorscheme turbo
+	elseif g:colors_name == 'turbo'
+		colorscheme borland
+	elseif g:colors_name == 'borland'
+		colorscheme greens
+	elseif g:colors_name == 'greens'
+		colorscheme southernlights
 	endif
 endfunction
 nmap <silent>\t :call ToggleColorscheme()<cr>:echo g:colors_name<cr>

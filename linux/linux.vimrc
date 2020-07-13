@@ -222,6 +222,21 @@ function! ToggleDrawIt(draw)
 	endif
 endfunction
 "==============================================================================
+"															 Multiple Cursors
+"				 https://github.com/terryma/vim-multiple-cursors#installation															 
+"==============================================================================
+"As ligações de teclas, desative-as e reatribua-as da maneira que desejar:
+"let g:multi_cursor_use_default_mapping=0
+" Default mapping
+"let g:multi_cursor_start_word_key      = '<C-n>'
+"let g:multi_cursor_select_all_word_key = '<A-n>'
+"let g:multi_cursor_start_key           = 'g<C-n>'
+"let g:multi_cursor_select_all_key      = 'g<A-n>'
+"let g:multi_cursor_next_key            = '<C-n>'
+"let g:multi_cursor_prev_key            = '<C-p>'
+"let g:multi_cursor_skip_key            = '<C-x>'
+"let g:multi_cursor_quit_key            = '<Esc>'
+"==============================================================================
 "														 Alinhamento de texto
 "==============================================================================
 nmap \, <esc>:left<cr>
@@ -510,7 +525,7 @@ nmap ,l :let @/=""<cr>
 imap <c-b> <esc>:QuickRun<cr>i
 "==============================================================================
 "											MarkDownPreview - Default Setting
-"								https://github.com/iamcco/markdown-preview.vim											
+"								https://github.com/iamcco/markdown-preview.vim
 "==============================================================================
 let g:mkdp_path_to_chrome = "/opt/waterfox/waterfox"
 " Path to the chrome or the command to open chrome (or other modern browsers).

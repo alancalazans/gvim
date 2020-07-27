@@ -85,7 +85,7 @@ set fileencoding=utf-8
 "==============================================================================
 "			 Retira os ^M que ficam no final de arquivos salvos pelo windows.
 "==============================================================================
-nmap \m :%s/\r//g<cr>
+nmap \/ :%s/\r//g<cr>
 "==============================================================================
 "					 Remove espaços redundantes no fim das linhas com \e
 "==============================================================================
@@ -99,7 +99,7 @@ au BufNewFile,BufRead *.c nmap \c :!gcc -Wall "%"<cr>
 "									Mapeia a tecla \x para executar o programa
 "==============================================================================
 "nmap \x :!./"%<"<cr>
-nmap \x :a.exe<cr>
+nmap \x :!./a.out<cr>
 "==============================================================================
 "							Configuração de fonte (tamanho e nome) para o GVim
 "==============================================================================
@@ -139,7 +139,8 @@ if has("gui_running")
 	elseif has("x11")
 		" Para GTK
 		"set guifont=DejaVu\ Sans\ Mono\ Book\ 11
-		set guifont=Courier\ New\ 11
+		set guifont=Monospace\ 11
+		"set guifont=Courier\ New\ 11
 	elseif has("gui_win32")
 		" Para Windows
 		" set guifont=Consolas:h12:cANSI
@@ -158,34 +159,20 @@ endif " Conclui sobre a existência de uma interface gráfica
 "											Função para trocar o tema de cores
 "								 A primeira linha refere-se ao esquema padrão
 "==============================================================================
-colorscheme luinnar
+colorscheme southernlights
 function! ToggleColorscheme()
-	if g:colors_name == 'luinnar'
-		colorscheme dracula
-	elseif g:colors_name == 'dracula'
-		colorscheme koehler
-	elseif g:colors_name == 'koehler'
-		colorscheme blackboard
-	elseif g:colors_name == 'blackboard'
-		colorscheme donbass
-	elseif g:colors_name == 'donbass'
-		colorscheme chocolateliquor
-	elseif g:colors_name == 'ChocolateLiquor'
-		colorscheme wombat
-	elseif g:colors_name == 'wombat'
-		colorscheme distinguished
-	elseif g:colors_name == 'distinguished'
-		colorscheme jellybeans
-	elseif g:colors_name == 'jellybeans'
-		colorscheme oceandeep
-	elseif g:colors_name == 'oceandeep'
-		colorscheme atom-dark
-	elseif g:colors_name == 'atom-dark'
-		colorscheme railscasts
-	elseif g:colors_name == 'railscasts'
-		colorscheme monokai-phoenix
-	elseif g:colors_name == 'monokai-phoenix'
-		colorscheme luinnar
+	if g:colors_name == 'southernlights'
+		colorscheme cyberpunk
+	elseif g:colors_name == 'cyberpunk'
+		colorscheme midnight
+	elseif g:colors_name == 'midnight'
+		colorscheme turbo
+	elseif g:colors_name == 'turbo'
+		colorscheme borland
+	elseif g:colors_name == 'borland'
+		colorscheme greens
+	elseif g:colors_name == 'greens'
+		colorscheme southernlights
 	endif
 endfunction
 nmap <silent>\t :call ToggleColorscheme()<cr>:echo g:colors_name<cr>
@@ -234,6 +221,21 @@ function! ToggleDrawIt(draw)
 		:DIstop
 	endif
 endfunction
+"==============================================================================
+"															 Multiple Cursors
+"				 https://github.com/terryma/vim-multiple-cursors#installation															 
+"==============================================================================
+"As ligações de teclas, desative-as e reatribua-as da maneira que desejar:
+"let g:multi_cursor_use_default_mapping=0
+" Default mapping
+"let g:multi_cursor_start_word_key      = '<C-n>'
+"let g:multi_cursor_select_all_word_key = '<A-n>'
+"let g:multi_cursor_start_key           = 'g<C-n>'
+"let g:multi_cursor_select_all_key      = 'g<A-n>'
+"let g:multi_cursor_next_key            = '<C-n>'
+"let g:multi_cursor_prev_key            = '<C-p>'
+"let g:multi_cursor_skip_key            = '<C-x>'
+"let g:multi_cursor_quit_key            = '<Esc>'
 "==============================================================================
 "														 Alinhamento de texto
 "==============================================================================
@@ -288,7 +290,7 @@ setlocal sm " Destaca Abertura e fechamento {} [] ()
 "==============================================================================
 "																		Emmet
 "==============================================================================
-imap <c-n> <c-y>,
+"imap <c-n> <c-y>,
 "==============================================================================
 "									Definindo sintaxe para algumas extenções.
 "==============================================================================
@@ -521,4 +523,3 @@ nmap ,l :let @/=""<cr>
 "											  Executar código com QuickRun
 "==============================================================================
 imap <c-b> <esc>:QuickRun<cr>i
-

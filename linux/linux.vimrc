@@ -1,30 +1,30 @@
-"																			###
-"													##  #####  ###### ####### #
-"													##         ######         #
-"														#       #######       ##
-"														#       ######       #
-"														#       ####       ##
-"														#       ##        #####
+"												              ###
+"												  ##  #####  ###### ####### #
+"												  ##         ######         #
+"												    #       #######       ##
+"												    #       ######       #
+"												    #       ####       ##
+"												    #       ##        #####
 "													 ##       #       ########
 "												 ####             ###########
-"													###           # ##########
-"														#          ############
-"														#        ##  ##   #  #  #
-"														#       ###  ## ### ### #
-"														#     ####  ##  ## ### #
-"														#   ############## ### #
+"												  ###           # ##########
+"												    #          ############
+"												    #        ##  ##   #  #  #
+"												    #       ###  ## ### ### #
+"												    #     ####  ##  ## ### #
+"												    #   ############## ### #
 "														 ###    #######
-"																			##
+"												              ##
 "==============================================================================
 " File: .vimrc ou _vimrc
-" Author: Alan Calazans <alan2calazans@gmail.com>
-" Last Update: Dom 26 Abr 2020 20:02:00 BRT
+" Author: Alan Calazans <alancalazans@hotmail.com.br>
+" Last Update: Sáb 08 Ago 2020 19:16:00 BRT
 " Created: Sex 22 Mai 2009 10:01:22 BRT
 " Installation: - As dotfile drop the file into your $HOME/ folder.
 "               - In Command line put $vim -U .vimrc.
 " License: GNU General Public License v3
 "          <http://www.gnu.org/licenses/gpl.html>
-" Version: 4.0
+" Version: 1.0
 " Notes: Based on the file:
 "        .vimrc (1.0) made by Ivan Carlos da Silva Lopes
 "        .vimrc made by Aurelio Marinho Jarga (verde)
@@ -39,7 +39,7 @@ set nocompatible
 set ruler " show the cursor position all the time
 set showmatch " Faz o highlight do parênteses, colechetes ou chave correspondente
 "=============================== -> LIGTHLINE =================================
-"											Configuration for landscape Theme
+"										  Configuration for landscape Theme
 "==============================================================================
 let g:lightline = {
 	\ 'active': {
@@ -69,13 +69,13 @@ endif
 "==============================================================================
 set mouse=a
 "==============================================================================
-"						Alguns tipos de arquivos devem ser ignorados pelo Vim.
+"					  Alguns tipos de arquivos devem ser ignorados pelo Vim.
 "==============================================================================
 set wildignore=*.o,*.obj,*.bak,*.exe,*.dll,*.com,*.class,*.au,*.wav,*.ps,*.avi,*.wmv,*.flv,*.djvu,*.pdf,*.chm,*.dvi,*.svn/,*~
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
 "==============================================================================
-"						Define codificação, fonte, tema, nº de linha e colunas
+"					  Define codificação, fonte, tema, nº de linha e colunas
 "==============================================================================
 "set nobomb
 set encoding=utf-8
@@ -96,12 +96,12 @@ nmap \e mz:%s/\s\+$//g<cr>`z
 "au BufNewFile,BufRead *.c nmap \c :!gcc "%" -Wall -o "%<"<cr>
 au BufNewFile,BufRead *.c nmap \c :!gcc -Wall "%"<cr>
 "==============================================================================
-"									Mapeia a tecla \x para executar o programa
+"								  Mapeia a tecla \x para executar o programa
 "==============================================================================
 "nmap \x :!./"%<"<cr>
 nmap \x :!./a.out<cr>
 "==============================================================================
-"							Configuração de fonte (tamanho e nome) para o GVim
+"						  Configuração de fonte (tamanho e nome) para o GVim
 "==============================================================================
 if has("gui_running")
 	if has("gui_gtk2")
@@ -151,12 +151,12 @@ if has("gui_running")
 	endif " Conclui a verificação do tipo de interface gráfica
 endif " Conclui sobre a existência de uma interface gráfica
 "==============================================================================
-"													Configura linhas, colunas
+"												  Configura linhas, colunas
 "==============================================================================
 "set lines=42 columns=80
 "set wildmenu
 "==============================================================================
-"											Função para trocar o tema de cores
+"										   Função para trocar o tema de cores
 "								 A primeira linha refere-se ao esquema padrão
 "==============================================================================
 colorscheme southernlights
@@ -177,12 +177,12 @@ function! ToggleColorscheme()
 endfunction
 nmap <silent>\t :call ToggleColorscheme()<cr>:echo g:colors_name<cr>
 "==============================================================================
-"											Suprime a mensagem inicial do GVim
+"										  Suprime a mensagem inicial do GVim
 "==============================================================================
 set shortmess+=I
 "==============================================================================
-"									Recarrega o arquivo de configuração vimrc
-"				Seja a fonte o arquivo .vimrc ou _vimrc, dependendo do sistema
+"								  Recarrega o arquivo de configuração vimrc
+"			  Seja a fonte o arquivo .vimrc ou _vimrc, dependendo do sistema
 "==============================================================================
 if &term == "win32" || "pcterm" || has("gui_win32")
 "	map ,v :e C:\gVimPortable\Data\settings\_vimrc <cr>
@@ -213,7 +213,7 @@ nmap \i :set list!<cr>
 "													 Ativa e Desativa DrawIt
 "==============================================================================
 nmap [[ :call ToggleDrawIt('true')<cr>
-nmap ]] :call ToggleDrawIt('false')<cr>i
+nmap ]] :call ToggleDrawIt('false')<cr>
 function! ToggleDrawIt(draw)
 	if a:draw=='true'
 		:DIstart
@@ -223,7 +223,7 @@ function! ToggleDrawIt(draw)
 endfunction
 "==============================================================================
 "															 Multiple Cursors
-"				 https://github.com/terryma/vim-multiple-cursors#installation															 
+"				 https://github.com/terryma/vim-multiple-cursors#installation
 "==============================================================================
 "As ligações de teclas, desative-as e reatribua-as da maneira que desejar:
 "let g:multi_cursor_use_default_mapping=0
@@ -243,7 +243,7 @@ nmap \, <esc>:left<cr>
 nmap \; <esc>:center<cr>
 nmap \. <esc>:right<cr>
 "==============================================================================
-"													Opções da linha de status
+"												  Opções da linha de status
 "==============================================================================
 " [1][+][RO] ~/.vimrc [vim] [utf-8] 34, 0x22 0-15 13%"
 set laststatus=2 " Quando exibir a linha de status: 2=always
@@ -258,7 +258,7 @@ set statusline+=%b,0x%-8B\ " ASCII e número hexadecimal do caractere sob o curs
 set statusline+=%-4.(%l-%c%)\ %<%P " Linha-coluna do cursor e percentual do arquivo
 "set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\ " Como o vim interpreta o cursor abaixo, tipo vimString
 "==============================================================================
-"									Autocompletar html, css, javascript, php.
+"								   Autocompletar html, css, javascript, php.
 "==============================================================================
 filetype on
 if has('autocmd')
@@ -288,7 +288,7 @@ endif
 imap <c-e> <c-x> <c-o>
 setlocal sm " Destaca Abertura e fechamento {} [] ()
 "==============================================================================
-"																		Emmet
+"																	  Emmet
 "==============================================================================
 "imap <c-n> <c-y>,
 "==============================================================================
@@ -301,7 +301,7 @@ au BufRead,BufNewFile *.pl6 set filetype=perl
 au BufRead,BufNewFile *.ts set filetype=javascript
 au BufRead,BufNewFile *.go set filetype=go
 "==============================================================================
-"							Remover barra de menu, barra rolagem e etc do gVim
+"						  Remover barra de menu, barra rolagem e etc do gVim
 "==============================================================================
 "set guioptions-=m
 "set guioptions-=T
@@ -309,9 +309,9 @@ au BufRead,BufNewFile *.go set filetype=go
 set guioptions+=b "Exibe barra de rolagem vertical
 "==============================================================================
 "		 Essa opção faz com que o <Backspace> se mova e delete nesses locais:
-"								indent - permite passar sobre autoindentação.
-"				eol - permite passar sobre o line-break, juntando duas linhas.
-"							start - permite passar sobre o ponto de inserção.
+"							  indent - permite passar sobre autoindentação.
+"			  eol - permite passar sobre o line-break, juntando duas linhas.
+"						  start - permite passar sobre o ponto de inserção.
 "==============================================================================
 set backspace=indent,eol,start
 "==============================================================================
@@ -325,7 +325,7 @@ set is hls is scs "para busca
 "hi LineNr     guifg=pink     ctermfg=lightMagenta
 hi LineNr     guifg=green    ctermfg=lightGreen
 "==============================================================================
-"													Ativa coloração de sintaxe
+"												  Ativa coloração de sintaxe
 "==============================================================================
 syntax on
 "==============================================================================
@@ -348,7 +348,7 @@ set noexpandtab " set expandtab "cria espaços no lugar de tabulação
 "set nowrap  " Sem wrap (quebra de linha)
 "==============================================================================
 "					 permite indentar bloco de texto selecionado usando 'tab'
-"								com guia e “des”indentar usando 'shift + tab'
+"							  com guia e “des”indentar usando 'shift + tab'
 "==============================================================================
 imap <s-tab> <c-o><lt><lt>
 nmap <tab> >>
@@ -358,7 +358,7 @@ vmap <s-tab> <lt>
 "==============================================================================
 "																 Atalhos Abas
 "------------------------------------------------------------------------------
-"													'Ctrl+t' abre uma nova aba
+"												  'Ctrl+t' abre uma nova aba
 "==============================================================================
 imap <c-t> <esc>:tabnew<cr>i
 nmap <c-t> :tabnew<cr>
@@ -378,11 +378,11 @@ imap <c-pageup> <esc>:tabnext<cr>i
 "==============================================================================
 imap <c-pagedown> <esc>:tabprevious<cr>i
 "==============================================================================
-"												'Ctrl+e' fecha a aba corrente
+"											  'Ctrl+e' fecha a aba corrente
 "==============================================================================
 imap <c-e> <esc>:tabclose<cr>i
 "==============================================================================
-"													Atalhos comuns de teclado
+"												  Atalhos comuns de teclado
 "------------------------------------------------------------------------------
 "						 Permite selecionar com SHIFT + SETA como no Windows
 "==============================================================================
@@ -391,7 +391,7 @@ set mousemodel=popup
 set keymodel=startsel,stopsel
 set selection=exclusive
 "==============================================================================
-"									Backspace no modo de visão apaga a seleção
+"								  Backspace no modo de visão apaga a seleção
 "==============================================================================
 vmap <bs> d
 "==============================================================================
@@ -400,12 +400,12 @@ vmap <bs> d
 vnoremap <c-x> "+x
 vnoremap <s-del> "+x
 "==============================================================================
-"													CTRL-C e CTRL-insert copia
+"												  CTRL-C e CTRL-insert copia
 "==============================================================================
 vnoremap <c-c> "+y
 vnoremap <c-insert> "+y
 "==============================================================================
-"													CTRL-V e SHIFT-insert cola
+"												  CTRL-V e SHIFT-insert cola
 "==============================================================================
 noremap <c-v> "+gP
 noremap <s-insert> "+gP
@@ -418,9 +418,9 @@ cnoremap <s-insert> <c-r>+
 "==============================================================================
 noremap <c-s> :update<cr>
 vnoremap <c-s> <c-c>:update<cr>
-inoremap <c-S> <c-o>:update<cr>
+inoremap <c-s> <c-o>:update<cr>
 "==============================================================================
-"																CTRL-Z desfaz
+"															  CTRL-Z desfaz
 "==============================================================================
 noremap <c-z> u
 vnoremap <c-z> <c-c>u
@@ -431,7 +431,7 @@ inoremap <c-z> <c-o>u
 noremap <c-y> <c-r>
 inoremap <c-y> <c-o><c-r>
 "==============================================================================
-"														CTRL-A seleciona tudo
+"													  CTRL-A seleciona tudo
 "==============================================================================
 noremap <c-a> gggH<c-o>G
 inoremap <c-a> <c-o>gg<c-o>gH<c-o>G
@@ -441,7 +441,7 @@ snoremap <c-a> <c-c>gggH<c-o>G
 xnoremap <c-a> <c-c>ggVG
 map <c-a> <esc>ggvG
 "==============================================================================
-"														CTRL-F4 fecha a janela
+"													  CTRL-F4 fecha a janela
 "==============================================================================
 noremap <c-F4> <c-w>c
 inoremap <c-F4> <c-o><c-w>c
@@ -453,7 +453,7 @@ onoremap <c-F4> <c-c><c-w>c
 set sn
 "==============================================================================
 " Outra forma de pular fora dos parênteses, colchetes e chaves, mover o cursor
-"																no modo insert
+"															  no modo insert
 "==============================================================================
 imap <c-l> <esc><right>a
 imap <c-h> <esc><left>a
@@ -464,7 +464,7 @@ if has("autocmd")
 	filetype plugin indent on
 endif
 "==============================================================================
-"									Movimentação de bloco de texto selecionado
+"								  Movimentação de bloco de texto selecionado
 "==============================================================================
 " Move bloco de texto selecionado pra cima
 function! MoveUp()
@@ -508,11 +508,11 @@ vmap <c-s-down> :<c-u>call MoveDown()<cr>
 " Duplica o bloco de texto selecionado
 vmap <c-d> :<c-u>call Duplicate()<cr>
 "==============================================================================
-"											Fechamento automático de tags HTML
+"										  Fechamento automático de tags HTML
 "==============================================================================
 imap ><tab>> <esc>mt?<\w<cr>:let @/=""<cr>lyiw`ta</><esc>P`tli
 "==============================================================================
-"											,l limpa o buffer de buscas
+"										  ,l limpa o buffer de buscas
 "==============================================================================
 nmap ,l :let @/=""<cr>
 "==============================================================================
@@ -524,10 +524,10 @@ nmap ,l :let @/=""<cr>
 "==============================================================================
 imap <c-b> <esc>:QuickRun<cr>i
 "==============================================================================
-"											MarkDownPreview - Default Setting
-"								https://github.com/iamcco/markdown-preview.vim
+"										  MarkDownPreview - Default Setting
+"							  https://github.com/iamcco/markdown-preview.vim
 "==============================================================================
-let g:mkdp_path_to_chrome = "/opt/waterfox/waterfox"
+let g:mkdp_path_to_chrome = "/opt/firefox/firefox"
 " Path to the chrome or the command to open chrome (or other modern browsers).
 " If set, g:mkdp_browserfunc would be ignored.
 

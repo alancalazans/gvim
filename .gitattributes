@@ -1,4 +1,4 @@
-# Declare os arquivos que sempre terão delimitadores de linha CRLF ao fazer checkout.
+# Declare os arquivos que sempre terão delimitadores de linha CRLF.
 .vimrc text eol=lf
 _vimrc text eol=cr
 .vim text eol=lf

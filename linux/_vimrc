@@ -1,24 +1,7 @@
-"												              ###
-"												  ##  #####  ###### ####### #
-"												  ##         ######         #
-"												    #       #######       ##
-"												    #       ######       #
-"												    #       ####       ##
-"												    #       ##        #####
-"													 ##       #       ########
-"												 ####             ###########
-"												  ###           # ##########
-"												    #          ############
-"												    #        ##  ##   #  #  #
-"												    #       ###  ## ### ### #
-"												    #     ####  ##  ## ### #
-"												    #   ############## ### #
-"														 ###    #######
-"												              ##
 "==============================================================================
 " File: .vimrc ou _vimrc
 " Author: Alan Calazans <alancalazans@hotmail.com.br>
-" Last Update: Sáb 08 Ago 2020 19:16:00 BRT
+" Last Update: Dom 02 Mai 2021 19:16:00 BRT
 " Created: Sex 22 Mai 2009 10:01:22 BRT
 " Installation: - As dotfile drop the file into your $HOME/ folder.
 "               - In Command line put $vim -U .vimrc.
@@ -82,24 +65,6 @@ set encoding=utf-8
 set fileencoding=utf-8
 "set encoding=iso-8859-1
 "set fileencoding=iso-8859-1
-"==============================================================================
-"			 Retira os ^M que ficam no final de arquivos salvos pelo windows.
-"==============================================================================
-nmap \/ :%s/\r//g<cr>
-"==============================================================================
-"					 Remove espaços redundantes no fim das linhas com \e
-"==============================================================================
-nmap \e mz:%s/\s\+$//g<cr>`z
-"==============================================================================
-"							 Mapeia a tecla \c para compilar o programa em C
-"==============================================================================
-"au BufNewFile,BufRead *.c nmap \c :!gcc "%" -Wall -o "%<"<cr>
-au BufNewFile,BufRead *.c nmap \c :!gcc -Wall "%"<cr>
-"==============================================================================
-"								  Mapeia a tecla \x para executar o programa
-"==============================================================================
-"nmap \x :!./"%<"<cr>
-nmap \x :!./a.out<cr>
 "==============================================================================
 "						  Configuração de fonte (tamanho e nome) para o GVim
 "==============================================================================
@@ -181,35 +146,6 @@ nmap <silent>\t :call ToggleColorscheme()<cr>:echo g:colors_name<cr>
 "==============================================================================
 set shortmess+=I
 "==============================================================================
-"								  Recarrega o arquivo de configuração vimrc
-"			  Seja a fonte o arquivo .vimrc ou _vimrc, dependendo do sistema
-"==============================================================================
-if &term == "win32" || "pcterm" || has("gui_win32")
-"	map ,v :e C:\gVimPortable\Data\settings\_vimrc <cr>
-"	nmap ,v :<c-u>source C:\gVimPortable\Data\settings\_vimrc<bar>echo "Vimrc recarregando!"<cr>
-	nmap ,v :source $MYVIMRC<cr>
-else
-"	map ,v :e ~/.vimrc<cr>
-"	nmap ,v :<c-u>source ~/.vimrc<bar>echo "Vimrc recarregando!"<cr>
-	nmap ,v :source $MYVIMRC<cr>
-endif
-"==============================================================================
-"					 Sidebar de navegação (NERDTree) em off na carga do GVim
-"==============================================================================
-let g:nerdtree_tabs_open_on_gui_startup=0
-"==============================================================================
-"							 Atalho p/ sidebar de navegação (plugin NERDTree)
-"==============================================================================
-nmap \b :NERDTreeTabsToggle<cr>
-"==============================================================================
-"													Mostra ou não a identacão
-"==============================================================================
-"set listchars=tab:¦·,trail:·,eol:$
-"set listchars=tab:▸·,trail:·,eol:¬
-set listchars=tab:¦\ ,trail:·,eol:¬
-"set list
-nmap \i :set list!<cr>
-"==============================================================================
 "													 Ativa e Desativa DrawIt
 "==============================================================================
 nmap [[ :call ToggleDrawIt('true')<cr>
@@ -236,12 +172,6 @@ endfunction
 "let g:multi_cursor_prev_key            = '<C-p>'
 "let g:multi_cursor_skip_key            = '<C-x>'
 "let g:multi_cursor_quit_key            = '<Esc>'
-"==============================================================================
-"														 Alinhamento de texto
-"==============================================================================
-nmap \, <esc>:left<cr>
-nmap \; <esc>:center<cr>
-nmap \. <esc>:right<cr>
 "==============================================================================
 "												  Opções da linha de status
 "==============================================================================
@@ -287,10 +217,6 @@ if has("autocmd") && exists("+omnifunc")
 endif
 imap <c-e> <c-x> <c-o>
 setlocal sm " Destaca Abertura e fechamento {} [] ()
-"==============================================================================
-"																	  Emmet
-"==============================================================================
-"imap <c-n> <c-y>,
 "==============================================================================
 "									Definindo sintaxe para algumas extenções.
 "==============================================================================
@@ -356,19 +282,10 @@ nmap <s-tab> <lt><lt>
 vmap <tab> >>
 vmap <s-tab> <lt>
 "==============================================================================
-"																 Atalhos Abas
-"------------------------------------------------------------------------------
-"												  'Ctrl+t' abre uma nova aba
+"															Abre uma nova aba
 "==============================================================================
 imap <c-t> <esc>:tabnew<cr>i
 nmap <c-t> :tabnew<cr>
-"==============================================================================
-"				Abrir, Salvar Como arquivo; Localizar e substituir no arquivo
-"==============================================================================
-nmap \a :browse confirm e<cr>
-nmap \w :browse confirm saveas<cr>
-nmap \f :promptfind<cr>
-nmap \s :promptrepl<cr>
 "==============================================================================
 "										 'Ctrl+PageUp' pula para próxima aba
 "==============================================================================
@@ -391,45 +308,127 @@ set mousemodel=popup
 set keymodel=startsel,stopsel
 set selection=exclusive
 "==============================================================================
+"											 Defina o espaço como tecla líder
+"==============================================================================
+let g:mapleader = ' '
+"==============================================================================
+"					 Sidebar de navegação (NERDTree) em off na carga do GVim
+"==============================================================================
+let g:nerdtree_tabs_open_on_gui_startup=0
+"==============================================================================
+"							 Atalho p/ sidebar de navegação (plugin NERDTree)
+"==============================================================================
+nmap <leader>n :NERDTreeTabsToggle<cr>
+"==============================================================================
+"													Mostra ou não a identacão
+"==============================================================================
+"set listchars=tab:¦·,trail:·,eol:$
+"set listchars=tab:▸·,trail:·,eol:¬
+set listchars=tab:¦\ ,trail:·,eol:¬
+"set list
+nmap <leader>i :set list!<cr>
+"==============================================================================
 "								  Backspace no modo de visão apaga a seleção
 "==============================================================================
 vmap <bs> d
 "==============================================================================
 "													 CTRL-X e SHIFT-Del corta
 "==============================================================================
-vnoremap <c-x> "+x
-vnoremap <s-del> "+x
+nmap <c-x> d
+vmap <c-x> <c-c>d
+imap <c-x> <c-o>d
 "==============================================================================
 "												  CTRL-C e CTRL-insert copia
 "==============================================================================
-vnoremap <c-c> "+y
-vnoremap <c-insert> "+y
+vmap <c-c> "+y
 "==============================================================================
 "												  CTRL-V e SHIFT-insert cola
 "==============================================================================
-noremap <c-v> "+gP
-noremap <s-insert> "+gP
-inoremap <c-v> <c-o>:set nosi<cr><c-r>+<c-o>:set si<cr>
-inoremap <s-insert> <c-r>+
-cnoremap <c-v> <c-o>:set nosi<cr><c-r>+<c-o>:set si<cr>
-cnoremap <s-insert> <c-r>+
+nmap <c-v> "+p
+vmap <c-v> <c-c>"+p
+imap <c-v> <c-o>"+p
 "==============================================================================
 "																 CTRL-S salva
 "==============================================================================
-noremap <c-s> :update<cr>
-vnoremap <c-s> <c-c>:update<cr>
-inoremap <c-s> <c-o>:update<cr>
+nmap <c-s> :w<cr>
+vmap <c-s> <c-c>:w<cr>
+imap <c-s> <c-o>:w<cr>
 "==============================================================================
 "															  CTRL-Z desfaz
 "==============================================================================
-noremap <c-z> u
-vnoremap <c-z> <c-c>u
-inoremap <c-z> <c-o>u
+nmap <c-z> u
+vmap <c-z> <c-c>u
+imap <c-z> <c-o>u
 "==============================================================================
 "																 CTRL-Y refaz
 "==============================================================================
-noremap <c-y> <c-r>
-inoremap <c-y> <c-o><c-r>
+nmap <c-y> <c-r>
+vmap <c-y> <c-c><c-r>
+imap <c-y> <c-o><c-r>
+"==============================================================================
+"									Mova para o próximo buffer com <líder> + l
+"==============================================================================
+nmap <leader>l :bnext<cr>
+vmap <leader>l <c-c>:bnext<cr>
+"==============================================================================
+"								 Mova para o buffer anterior com <líder> + j
+"==============================================================================
+nmap <leader>j :bprevious<cr>
+vmap <leader>j <c-c>:bprevious<cr>
+"==============================================================================
+"										Fechar o buffer atual com <líder> + q
+"==============================================================================
+nmap <leader>q :bdelete<cr>
+vmap <leader>q <c-c>:bdelete<cr>
+"==============================================================================
+"														 Alinhamento de texto
+"==============================================================================
+nmap <leader>, <esc>:left<cr>
+nmap <leader>. <esc>:right<cr>
+nmap <leader>; <esc>:center<cr>
+"==============================================================================
+"																	  Emmet
+"==============================================================================
+imap <leader>e <c-y>,
+"==============================================================================
+"			 Retira os ^M que ficam no final de arquivos salvos pelo windows.
+"==============================================================================
+nmap <leader>m :%s/\r//g<cr>
+"==============================================================================
+"					 Remove espaços redundantes no fim das linhas com \e
+"==============================================================================
+nmap <leader>s mz:%s/\s\+$//g<cr>`z
+"==============================================================================
+"													 Limpa o buffer de buscas
+"==============================================================================
+nmap <leader>b :let @/=""<cr>
+"==============================================================================
+"								  Recarrega o arquivo de configuração
+"==============================================================================
+nmap <leader>v :source $MYVIMRC<cr>
+"==============================================================================
+"					 Abrir, Salvar Como..., Localizar e substituir no arquivo
+"==============================================================================
+nmap <leader>o :browse confirm e<cr>
+nmap <leader>w :browse confirm saveas<cr>
+nmap <leader>f :promptfind<cr>
+nmap <leader>r :promptrepl<cr>
+"==============================================================================
+"							 Mapeia a tecla \c para compilar o programa em C
+"==============================================================================
+"au BufNewFile,BufRead *.c nmap \c :!gcc "%" -Wall -o "%<"<cr>
+au BufNewFile,BufRead *.c nmap \c :!gcc -Wall "%"<cr>
+"==============================================================================
+"								  Mapeia a tecla \x para executar o programa
+"==============================================================================
+"nmap \x :!./"%<"<cr>
+nmap \x :!./a.out<cr>
+"==============================================================================
+"																Fechar Editor
+"==============================================================================
+nmap <c-q> :q<cr>
+vmap <c-q> <c-c>:q<cr>
+imap <c-q> <c-o>:q<cr>
 "==============================================================================
 "													  CTRL-A seleciona tudo
 "==============================================================================
@@ -512,60 +511,6 @@ vmap <c-d> :<c-u>call Duplicate()<cr>
 "==============================================================================
 imap ><tab>> <esc>mt?<\w<cr>:let @/=""<cr>lyiw`ta</><esc>P`tli
 "==============================================================================
-"										  ,l limpa o buffer de buscas
-"==============================================================================
-nmap ,l :let @/=""<cr>
-"==============================================================================
 "									 Entra no modo visual para tabular bloco
 "==============================================================================
 "imap <f11> <esc><s-v>
-"==============================================================================
-"											  Executar código com QuickRun
-"==============================================================================
-imap <c-b> <esc>:QuickRun<cr>i
-"==============================================================================
-"										  MarkDownPreview - Default Setting
-"							  https://github.com/iamcco/markdown-preview.vim
-"==============================================================================
-let g:mkdp_path_to_chrome = "/opt/firefox/firefox"
-" Path to the chrome or the command to open chrome (or other modern browsers).
-" If set, g:mkdp_browserfunc would be ignored.
-
-let g:mkdp_browserfunc = 'MKDP_browserfunc_default'
-" Callback Vim function to open browser, the only parameter is the url to open.
-
-let g:mkdp_auto_start = 0
-" Set to 1, Vim will open the preview window on entering the Markdown
-" buffer.
-
-let g:mkdp_auto_open = 0
-" Set to 1, Vim will automatically open the preview window when you edit a
-" Markdown file.
-
-let g:mkdp_auto_close = 1
-" Set to 1, Vim will automatically close the current preview window when
-" switching from one Markdown buffer to another.
-
-let g:mkdp_refresh_slow = 0
-" Set to 1, Vim will just refresh Markdown when saving the buffer or
-" leaving from insert mode. With default 0, it will automatically refresh
-" Markdown as you edit or move the cursor.
-
-let g:mkdp_command_for_global = 0
-" Set to 1, the MarkdownPreview command can be used for all files,
-" by default it can only be used in Markdown files.
-
-let g:mkdp_open_to_the_world = 0
-" Set to 1, the preview server will be available to others in your network.
-" By default, the server only listens on localhost (127.0.0.1).
-"==============================================================================
-"															 MarkDownPreview
-"==============================================================================
-" for normal mode
-nmap <silent> \1 <Plug>MarkdownPreview
-" for insert mode
-"imap <silent> <F8> <Plug>MarkdownPreview
-" for normal mode
-nmap <silent> \2 <Plug>StopMarkdownPreview
-" for insert mode
-"imap <silent> <F9> <Plug>StopMarkdownPreview

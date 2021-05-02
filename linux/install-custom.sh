@@ -1,5 +1,5 @@
 #!/bin/bash
-cp linux.vimrc ~/.vimrc
-tar -Jxvf linux.vim.tar.xz -C ~/
-sudo cp linux.vimrc /root/.vimrc
-sudo tar -Jxvf linux.vim.tar.xz -C /root/
+cp _vimrc ~/.vimrc
+tar -Jxvf _vim.tar.xz -C ~/
+sudo cp _vimrc /root/.vimrc
+sudo tar -Jxvf _vim.tar.xz -C /root/

@@ -1,8 +1,16 @@
 "==============================================================================
+"   _______      ___           
+"  / ____\ \    / (_)          
+" | |  __ \ \  / / _ _ __ ___  
+" | | |_ | \ \/ / | | '_ ` _ \ 
+" | |__| |  \  /  | | | | | | |
+"  \_____|   \/   |_|_| |_| |_|
+"
+"==============================================================================
 " File: .vimrc ou _vimrc
 " Author: Alan Calazans <alancalazans@hotmail.com.br>
-" Last Update: Dom 02 Mai 2021 19:16:00 BRT
-" Created: Sex 22 Mai 2009 10:01:22 BRT
+" Last Update: Ter 04 Mai 2021
+" Created: Sex 22 Mai 2009
 " Installation: - As dotfile drop the file into your $HOME/ folder.
 "               - In Command line put $vim -U .vimrc.
 " License: GNU General Public License v3

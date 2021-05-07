@@ -9,7 +9,7 @@
 "=======================================
 " File: .vimrc ou _vimrc
 " Author: Alan Calazans <alancalazans@hotmail.com.br>
-" Last Update: Qua 05 Mai 2021
+" Last Update: Sex 07 Mai 2021
 " Created: Sex 22 Mai 2009
 " Installation: - As dotfile drop the file into your $HOME/ folder.
 "               - In Command line put $vim -U .vimrc.

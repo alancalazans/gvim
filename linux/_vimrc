@@ -266,6 +266,7 @@ au BufRead,BufNewFile *.ts set filetype=javascript
 au BufRead,BufNewFile *.go set filetype=go
 au BufRead,BufNewFile *.exs setf erlang
 au BufRead,BufNewFile *.ex setf erlang
+au BufRead,BufNewFile *.nim setf nim
 "=======================================
 " Remover barra de menu, barra rolagem e etc do gVim
 "=======================================
@@ -393,11 +394,11 @@ vmap <c-insert> "+y
 " CTRL-V e SHIFT-insert cola
 "=======================================
 nmap <c-v> "+gP
-vmap <c-v> <c-c>"+gP
 imap <c-v> <c-o>:set nosi<cr><c-r>+<c-o>:set si<cr>
+cmap <c-v> <c-o>:set nosi<cr><c-r>+<c-o>:set si<cr>
 "---------------------------------------
-nmap <s-insert> "+gP
 imap <s-insert> <c-r>+
+nmap <s-insert> "+gP
 cmap <s-insert> <c-r>+
 "=======================================
 " CTRL-S salva

@@ -378,21 +378,6 @@ map <c-a> <esc>ggvG
 "=======================================
 vmap <bs> d
 "=======================================
-" CTRL-X corta
-"=======================================
-vmap <c-x> "+x
-"=======================================
-" CTRL-C copia
-"=======================================
-imap <c-c> <c-o>vgG
-vmap <c-c> "+y
-"=======================================
-" CTRL-V cola
-"=======================================
-nmap <c-v> "+gP
-imap <c-v> <c-o>:set nosi<cr><c-r>+<c-o>:set si<cr>
-cmap <c-v> <c-o>:set nosi<cr><c-r>+<c-o>:set si<cr>
-"=======================================
 " CTRL-S salva
 "=======================================
 nmap <c-s> :update<cr>
@@ -501,10 +486,10 @@ set sn
 " Outra forma de pular fora dos parênteses, colchetes e chaves, mover o cursor
 " no modo insert
 "=======================================
-imap <c-l> <right>
-imap <c-h> <left>
-imap <c-[> <up>
-imap <c-]> <down>
+imap <m-l> <right>
+imap <m-h> <left>
+imap <m-i> <up>
+imap <m-m> <down>
 "=======================================
 " Habilita auto-indentação
 "=======================================
@@ -586,3 +571,19 @@ iab 12a. 12ª
 iab 13a. 13ª
 iab 14a. 14ª
 iab 15a. 15ª
+"-------------------------------------------
+" Paste system clipboard with Ctrl + v
+inoremap <C-v> <ESC>"+gP
+"nnoremap <C-v> "+gP<ESC>
+vnoremap <C-v> d"+gP<ESC>
+cnoremap <C-v> <C-r>+
+"-------------------------------------------
+" Cut to system clipboard with Ctrl + x
+vnoremap <C-x> "+d
+"nnoremap <C-x> "+dd
+inoremap <C-x> <ESC>"+ddi
+"-------------------------------------------
+" Copy to system clipboard with Ctr + c
+vnoremap <C-c> "+y
+nnoremap <C-c> "+yy
+inoremap <C-c> <ESC>"+yy

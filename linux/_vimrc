@@ -76,7 +76,7 @@ set fileencoding=utf-8
 "=======================================
 " Configuração de fonte
 "=======================================
-set guifont=Monospace\ 11
+set guifont=Monospace\ 12
 "=======================================
 " Configura linhas, colunas
 "=======================================
@@ -302,13 +302,31 @@ set mousemodel=popup
 set keymodel=startsel,stopsel
 set selection=exclusive
 "=======================================
-" Sidebar de navegação (NERDTree) em off na carga do GVim
+"NERDTree : https://github.com/preservim/nerdtree
 "=======================================
-let g:nerdtree_tabs_open_on_gui_startup=0
 "=======================================
 " Atalho p/ sidebar de navegação (plugin NERDTree)
 "=======================================
-nmap <leader>n :NERDTreeTabsToggle<cr>
+nmap <leader>n :NERDTreeToggle<cr>
+"nerdtree - configurações básicas
+let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeIgnore = []
+let NERDTreeStatusline = ''
+"nerdtree-git-plugin
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 "=======================================
 " Mostra ou não a identacão
 "=======================================
@@ -558,4 +576,7 @@ vmap <S-Del> "+c
 call plug#begin('~/.vim/plugged')
 Plug 'gko/vim-coloresque'
 Plug 'dense-analysis/ale'
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()

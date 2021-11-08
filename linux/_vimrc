@@ -85,16 +85,16 @@ set guifont=Monospace\ 12
 "=======================================
 " Defina o ',' como tecla líder
 "=======================================
-let g:mapleader = ','
+let g:mapleader = ' '
 "=======================================
 " Função para trocar o tema de cores
 " A primeira linha refere-se ao esquema padrão
 "=======================================
-colorscheme aylin
+colorscheme gruvbox
 function! ToggleColorscheme()
-  if g:colors_name == 'aylin'
-    colorscheme snazzy
-  elseif g:colors_name == 'snazzy'
+  if g:colors_name == 'gruvbox'
+    colorscheme aylin
+  elseif g:colors_name == 'aylin'
     colorscheme midnight
   elseif g:colors_name == 'midnight'
     colorscheme southernlights
@@ -103,7 +103,9 @@ function! ToggleColorscheme()
   elseif g:colors_name == 'aurora'
     colorscheme nvcode
   elseif g:colors_name == 'nvcode'
-    colorscheme aylin
+    colorscheme snazzy
+  elseif g:colors_name == 'snazzy'
+    colorscheme gruvbox
   endif
 endfunction
 nmap <silent><leader>/ :call ToggleColorscheme()<cr>:echo g:colors_name<cr>
@@ -574,9 +576,16 @@ vmap <S-Del> "+c
 "-------------------------------------------
 " VIM-PLUG
 call plug#begin('~/.vim/plugged')
+"https://github.com/gko/vim-coloresque
 Plug 'gko/vim-coloresque'
+"https://github.com/dense-analysis/ale
 Plug 'dense-analysis/ale'
+"https://github.com/preservim/nerdtree
 Plug 'preservim/nerdtree'
+"https://github.com/ryanoasis/vim-devicons
 Plug 'ryanoasis/vim-devicons'
+"https://github.com/Xuyuanp/nerdtree-git-plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
+"https://github.com/morhetz/gruvbox/wiki/Installation
+Plug 'morhetz/gruvbox'
 call plug#end()

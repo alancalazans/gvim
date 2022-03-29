@@ -211,10 +211,12 @@ snippet react-root-pure
 
 	function MyComponent() {
 		return e(
-			"div", { id: "elemento-pai", style: { width: '400px', margin: '0 auto' } },
+			'div',
+			{ id: 'elemento-pai', style: { width: '400px', margin: '0 auto' } },
 			e(
-				"h1", { className: "elemento-filho", style: { fontFamily: 'Arial', fontStyle: 'italic' } },
-				"Alô mundo!!!"
+				'h1',
+				{ className: 'elemento-filho', style: { fontFamily: 'Arial', fontStyle: 'italic' } },
+				'Alô mundo!!!'
 			)
 		);
 	}
@@ -376,9 +378,9 @@ snippet boot
 	});
 snippet requirejs
 	requirejs(['${1:deps}'], () => {
-		${2:content}
+		
 	});
 snippet definejs
 	define(['${1:deps}'], () => {
-		${2:content}
+		
 	});

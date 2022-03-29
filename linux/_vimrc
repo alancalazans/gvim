@@ -90,9 +90,15 @@ let g:mapleader = ' '
 " Função para trocar o tema de cores
 " A primeira linha refere-se ao esquema padrão
 "=======================================
+" Cores disponíveis: aylin, ayu, borland,
+" gruvbox, midnight, nvcode, OceanicNext,
+" palenight.
+"=======================================
 colorscheme midnight 
 function! ToggleColorscheme()
   if g:colors_name == 'midnight'
+    colorscheme ayu
+  elseif g:colors_name == 'ayu'
     colorscheme aylin
   elseif g:colors_name == 'aylin'
     colorscheme OceanicNext
@@ -103,8 +109,6 @@ function! ToggleColorscheme()
   elseif g:colors_name == 'palenight'
     colorscheme borland
   elseif g:colors_name == 'borland'
-    colorscheme ayu
-  elseif g:colors_name == 'ayu'
     colorscheme midnight
   endif
 endfunction

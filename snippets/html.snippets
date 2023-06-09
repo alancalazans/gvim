@@ -1,0 +1,412 @@
+snippet favicon
+	<link rel="shortcut icon" href="favicon.png">
+#=======================================
+# html
+#=======================================
+snippet documentation
+	<!--
+	=======================================
+	 File: ${1:index.html}
+	 Author: ${2:webmaster <webmaster@gmail.com>}
+	 Last Update: ${3:Sex 06 Mai 2016 07:22:00 BRT}
+	 Created: ${4:Sex 22 Mai 2009 10:01:22 BRT}
+	 Version: ${5:1.0.0}
+	 Notes: $0
+	=======================================
+	-->
+snippet a
+	<a href="${1:#}">$0</a>
+snippet abbr
+	<abbr>$0</abbr>
+snippet address
+	<address>$0</address>
+snippet area
+	<area shape="${1:default, rect, circle or poly?}" coords="$2" href="$3" alt="$0"/>
+snippet audio
+	<!-- Outros parâmetros: autoplay loop -->
+	<audio controls>
+		<source src="assets/audio/audio.mp3" type="audio/mp3" />
+	</audio>
+snippet b
+	<b>$0</b>
+snippet base
+	<base ${1:target or href?}="$0"/>
+snippet baset
+	<base target="$0"/>
+snippet baseh
+	<base href="$0"/>
+snippet bdo
+	<bdo dir="${1:ltr or rtl?}">$0</bdo>
+snippet blockquote
+	<blockquote>$0</blockquote>
+snippet body
+	<body>
+		$0
+	</body>
+snippet br
+	<br>
+snippet button
+	<button type="${1:button, reset or submit?}">${0:label}</button>
+snippet cmt
+	<!-- $0 -->
+snippet cmts
+	<!--
+	===
+	$0
+	===
+	-->
+snippet caption
+	<caption>$0</caption>
+snippet cdata
+	<![CDATA[$0]]>
+snippet checkbox
+	<input type="checkbox" name="$1" value="$0" />
+snippet cite
+	<cite>$0</cite>
+snippet code
+	<code>$0</code>
+snippet col
+	<col align="${0:left, right, center, justify or char?}"/>
+snippet colgroup
+	<colgroup>$0</colgroup>
+snippet style
+	<style>
+
+		* {
+			margin: 0;
+			padding: 0;
+			-webkit-box-sizing: border-box;
+				 -moz-box-sizing: border-box;
+							box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Trebuchet MS', Helvetica, sans-serif;
+			font-size: 14px;
+			//font-weight: bold;
+		}
+
+	</style>
+snippet csssrc
+	<link rel="stylesheet" href="$0.css">
+snippet reset-global
+	html {
+		box-sizing: border-box;
+	}
+	*,
+	*:before,
+	*:after {
+		box-sizing: inherit;
+	}
+snippet dd
+	<dd>$0</dd>
+snippet del
+	<del>$0</del>
+snippet dfn
+	<dfn>$0</dfn>
+snippet div
+	<div ${1:id or class?}="$2">
+		$0
+	</div>
+snippet clearfix
+	.clearfix::before, .clearfix::after {
+		content: '';
+		display: table;
+	}
+
+	.clearfix::after {
+		clear: both;
+	}
+snippet dl
+	<dl>$0</dl>
+snippet dt
+	<dt>$0</dt>
+snippet em
+	<em>$0</em>
+snippet fieldset
+	<fieldset>
+	<legend>$0</legend>
+		$0
+	</fieldset>
+snippet form
+	<form action="${1:url}" method="${2:get or post?}">
+
+		<input type="submit" value="${0:send value}">
+	</form>
+snippet frame
+	<!--
+	rows = x; linhas
+	cols = y; colunas
+	border = largura; da borda
+	frameborder = 0(não) ou 1(sim)
+	-->
+	<frameset rows="15%,85%">
+		<frame name =“moldura1” src=""/>
+		<frameset cols="30%,70%">
+			<frame name =“moldura2” src=""/>
+			<frame name =“moldura3” src=""/>
+		</frameset>
+	</frameset>
+snippet frameset
+	<frameset>
+		<frame src="$1" />
+		$0
+	</frameset>
+snippet h1
+	<h1>$0</h1>
+snippet h2
+	<h2>$0</h2>
+snippet h3
+	<h3>$0</h3>
+snippet h4
+	<h4>$0</h4>
+snippet h5
+	<h5>$0</h5>
+snippet h6
+	<h6>$0</h6>
+snippet head
+	<head>
+		$0
+	</head>
+snippet hr
+	<hr style="height: 5px; border: none; color: #7A7879; background-color: #7A7879;">
+snippet html
+	<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8">
+			<title>${1:Title}</title>
+			<meta name="description" content="">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+		</head>
+		<body>
+			$0
+		</body>
+	</html>
+snippet htmlmetas
+	<!DOCTYPE HTML>
+	<html lang="pt-br">
+		<head>
+			<!-- Meta tags -->
+			<meta charset="utf-8">
+			<title>${1:Title}</title>
+			<meta name="description" content="description">
+			<link rel="canonical" href="url">
+			<meta name="author" content="author">
+			<meta name="robots" content="nofollow">
+			<meta http-equiv="X-UA-Compatible" content="IE-edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			<!-- <link rel="icon" href="favicon.png"> -->
+		</head>
+		<body>
+			$0
+		</body>
+	</html>
+snippet i
+	<i>$0</i>
+snippet ie7
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+snippet iframe
+	<div ${1:id or class?}="$0">
+	<iframe src="http://www.google.com" width="400px" height="400px" frameborder="1" scrolling="yes"></iframe>
+	</div>
+snippet img
+	<img src="$1" width="$2" height="$3" title="$4" alt="$0">
+snippet input
+	<input type="text" id="$1" name="$2" value="$3" placeholder="$0" required>
+snippet ins
+	<ins>$0</ins>
+#=======================================
+# JavaScript / JQuery
+#=======================================
+snippet createElement
+	const createElement = (elementName, attributes) => {
+		let element = document.createElement(elementName)
+		let attributesArray = Object.entries(attributes)
+
+		let attributesAsArray = Object.entries(attributes)
+
+		attributesAsArray.forEach(([key, value]) => element.setAttribute(key, value))
+
+		return element
+	}
+snippet iife
+	((win, doc) => {
+		'use strict';
+		$0
+	})(window, document);
+snippet $
+	$(() => {
+		$0
+	});
+snippet js
+	<script>
+		$0
+	</script>
+snippet jssrc
+	<script src="$0.js"></script>
+snippet kbd
+	<kbd>$0</kbd>
+snippet label
+	<label for="$1">$0</label>
+snippet legend
+	<legend>$0</legend>
+snippet li
+	<li>$0</li>
+snippet map
+	<map name="$1">$0</map>
+snippet meta
+	<meta name="$1" content="$0" />
+snippet metah
+	<meta http-equiv="$1" content="$0" />
+snippet noframes
+	<noframes>$0</noframes>
+snippet noscript
+	<noscript>$0</noscript>
+snippet object
+	<object>$0</object>
+snippet ol
+	<ol>
+		<li>$0</li>
+	</ol>
+snippet optgroup
+	<optgroup label="$1">
+		<option value="$2">$0</option>
+	</optgroup>
+snippet option
+	<option>$0</option>
+snippet p
+	<p>$0</p>
+snippet param
+	<param name="$1" value="$0" />
+snippet password
+	<input type="password" id="$1" name="$0" />
+snippet pre
+	<pre>$0</pre>
+snippet precode
+	<pre class="prettyprint">
+	$0
+	</pre>
+snippet precodeln
+	<pre class="prettyprint linenums">
+	$0
+	</pre>
+snippet q
+	<q>$0</q>
+snippet radio
+	<input type="radio" name="$1" value="$0" />
+snippet refresh
+	<meta http-equiv="refresh" content="2;url=$0" />
+snippet rss
+	<link rel="alternate" type="application/rss+xml" title="$1" href="$0" />
+snippet samp
+	<samp>$0</samp>
+snippet select
+	<select id="$1" name="$2">
+	<optgroup label="$3">
+		<option value="$4">$0</option>
+	</optgroup>
+	</select>
+snippet small
+	<small>$0</small>
+snippet span
+	<span class="$1">$0</span>
+snippet strong
+	<strong>$0</strong>
+snippet sub
+	<sub>$0</sub>
+snippet sup
+	<sup>$0</sup>
+snippet table
+	<table border="1" width="300" height="300" bgcolor="yellow">
+	<caption>${0:title}</caption>
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th></th>
+			<th></th>
+		</tr>
+	</tfoot>
+	</table>
+snippet tbody
+	<tbody>
+		<tr>$0</tr>
+	</tbody>
+snippet td
+	<td>$0</td>
+snippet textarea
+	<textarea ${1:id ou class}="$2" name="$3" cols="50" rows="10" >$0</textarea>
+snippet tfoot
+	<tfoot>
+		<tr>$0</tr>
+	</tfoot>
+snippet th
+	<th>$0</th>
+snippet thead
+	<thead>
+		<tr>$0</tr>
+	</thead>
+snippet title
+	<title>$0</title>
+snippet tr
+	<tr>
+		<td>$0</td>
+	</tr>
+snippet thumb
+	<a href="$1"><img src="$2" alt="$3" title="$0"/></a>
+snippet ul
+	<ul>
+		<li>$0</li>
+	</ul>
+snippet utf
+	<meta http-equiv="Content-Type" content="text/html; charset=${0:utf-8}" />
+snippet var
+	<var>$0</var>
+snippet video
+	<!-- Outros parâmetros: poster="star.png" autoplay loop tabindex="0" -->
+	<video width="320" height="240" controls>
+		<source src="assets/video/movie.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+		<source src="assets/video/movie.webm" type='video/webm; codecs="vp8, vorbis"' />
+		<source src="assets/video/movie.ogv" type='video/ogg; codecs="theora, vorbis"' />
+		<p>Seu navegador não suporta HTML5.</p>
+	</video>
+snippet cmtcss
+	/* $0 */
+snippet cmtscss
+	/*===
+	* $0
+	**===*/
+snippet hide
+	text-indent: 9999em; line-height: 9999em; overflow: hidden;
+#=======================================
+# window.onload
+#=======================================
+snippet onload
+	window.onload = () => {
+		$0
+	}
+#------------------------------------------------
+# RequireJS
+#------------------------------------------------
+snippet boot
+	requirejs.config({
+		baseUrl: 'assets/js',
+		paths: {
+			'${1:scriptName}': '${0:script-name}'
+		}
+	});
+snippet requirejs
+	requirejs(['${0:deps}'], () => {
+
+	});

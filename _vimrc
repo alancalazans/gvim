@@ -633,8 +633,9 @@ call plug#begin('~/.vim/plugged')
 	Plug 'Townk/vim-autoclose'
 	Plug 'ervandew/supertab'
 	Plug 'vim-scripts/DrawIt'
-	Plug 'garbas/vim-snipmate'
 	Plug 'MarcWeber/vim-addon-mw-utils'
+	Plug 'tomtom/tlib_vim'
+	Plug 'garbas/vim-snipmate'
 	Plug 'preservim/nerdtree'
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 	"---------------------------------------

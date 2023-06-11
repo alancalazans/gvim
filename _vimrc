@@ -87,7 +87,12 @@ set fileencoding=utf-8
 "---------------------------------------
 " Configuração de fonte
 "---------------------------------------
-set guifont=Monospace\ 12
+"set guifont=Monospace\ 12
+if has('gui_running') && !has('gui_win32')
+    set guifont=FuraMono\ Nerd\ Font\ 12
+else
+    set guifont=Consolas:h11
+endif
 "---------------------------------------
 " Configura linhas, colunas
 "---------------------------------------
@@ -342,7 +347,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 "set listchars=tab:¦·,trail:·,eol:$
 "set listchars=tab:▸·,trail:·,eol:¬
 set listchars=tab:¦\ ,trail:·,eol:¬
-"set list
+set list
 nmap <leader>i :set list!<cr>
 "---------------------------------------
 " Backspace no modo de visão apaga a seleção

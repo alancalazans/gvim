@@ -9,16 +9,6 @@ if ! [ -d "$HOME/.local/share/fonts" ]; then
 	cp NeoVim_fonts/Droid*.otf "$HOME/.local/share/fonts/"
 	unzip NeoVim_fonts/FiraMono.zip -d "$HOME/.local/share/fonts/"
 fi
-#root
-sudo unzip _vim.zip -d /root/
-sudo cp snippets/* /root/.vim/snippets/
-sudo cp _vimrc /root/.vimrc
-# Caso o diretório de fontes não exista.
-if ! [ -d "/root/.local/share/fonts" ]; then
-	sudo mkdir -p "/root/.local/share/fonts"
-	sudo cp NeoVim_fonts/Droid*.otf "/root/.local/share/fonts"
-	sudo unzip NeoVim_fonts/FiraMono.zip -d "/root/.local/share/fonts"
-fi
 #sudo mkdir -p /opt/omnisharp
 #sudo tar -zxf Omnisharp-Roslyn-Server/omnisharp-linux-x64-net6.0.tar.gz -C /opt/omnisharp/
 #--------------------
@@ -26,7 +16,7 @@ fi
 # https://eslint.org/
 # Instalando:
 #--------------------
-npm install eslint -g
+#npm install eslint -g
 #--------------------
 # Criando arquivo de configuração
 # `.eslintrc.js` na pasta de usuário:
@@ -51,3 +41,4 @@ if [ ! -f ~/.eslintrc.js ]; then
 			}
 	}' > ~/.eslintrc.js
 fi
+echo 'Rode o comando: "npm install eslint -g" caso ainda não tenha instalado o "eslint"'

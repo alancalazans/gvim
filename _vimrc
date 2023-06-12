@@ -89,9 +89,9 @@ set fileencoding=utf-8
 "---------------------------------------
 "set guifont=Monospace\ 12
 if has('gui_running') && !has('gui_win32')
-    set guifont=FuraMono\ Nerd\ Font\ 12
+  set guifont=FuraMono\ Nerd\ Font\ 12
 else
-    set guifont=Consolas:h11
+  set guifont=Consolas:h11
 endif
 "---------------------------------------
 " Configura linhas, colunas

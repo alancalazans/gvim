@@ -635,6 +635,7 @@ call plug#begin('~/.vim/plugged')
 	" Utilities
 	"---------------------------------------
 	Plug 'mattn/emmet-vim'
+	Plug 'jiangmiao/auto-pairs'
 	Plug 'Townk/vim-autoclose'
 	Plug 'ervandew/supertab'
 	Plug 'vim-scripts/DrawIt'
@@ -643,6 +644,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'garbas/vim-snipmate'
 	Plug 'preservim/nerdtree'
 	Plug 'Xuyuanp/nerdtree-git-plugin'
+	Plug 'ap/vim-css-color'
+	Plug 'thaerkh/vim-indentguides'
 	"---------------------------------------
 	" Completion / linters / formatters
 	"---------------------------------------

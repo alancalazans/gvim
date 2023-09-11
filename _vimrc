@@ -637,7 +637,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'mattn/emmet-vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'Townk/vim-autoclose'
-	Plug 'ervandew/supertab'
+	"Plug 'ervandew/supertab'
 	Plug 'vim-scripts/DrawIt'
 	Plug 'MarcWeber/vim-addon-mw-utils'
 	Plug 'tomtom/tlib_vim'

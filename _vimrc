@@ -119,8 +119,6 @@ function! ToggleColorscheme()
   elseif g:colors_name == 'gruvbox'
     colorscheme gruvbox-material
   elseif g:colors_name == 'gruvbox-material'
-    colorscheme palenight
-  elseif g:colors_name == 'palenight'
     colorscheme molokai
   endif
   hi LineNr guifg=#ffffff ctermfg=lightCyan

@@ -9,10 +9,9 @@
 "---------------------------------------
 " File: .vimrc ou _vimrc
 " Author: Alan Calazans <alancalazans@hotmail.com.br>
-" Created: Sex 22 Mai 2009
-" Updated: Seg 26 Set 2022
-" Installation: - As dotfile drop the file into your $HOME/ folder.
-"               - In Command line put $vim -U .vimrc.
+" Created: Sex 30 Abr 2021
+" Updated: Seg 16 Out 2023
+" Installation: - As dotfile drop the file into your $HOME/.config/nvim/ folder.
 " License: GNU General Public License v3
 "          <http://www.gnu.org/licenses/gpl.html>
 " Version: 1.0
@@ -44,19 +43,19 @@ set showmatch " Faz o highlight do parênteses, colechetes ou chave corresponden
 " Configuration for landscape Theme
 "---------------------------------------
 let g:lightline = {
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'readonly', 'filename', 'modified', ] ],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ],
-  \              [ 'tagbar', 'fileformat', 'fileencoding', 'filetype'] ],
-  \ },
-  \ 'separator': { 'left': '【', 'right': '】' },
-  \ 'component': {
-  \   'lineinfo': '%l\%L [%p%%], %c, %n',
-  \   'readonly': '%{&readonly?"\ue0a2":""}',
-  \ }
-  \ }
+\   'active': {
+\     'left': [ [ 'mode', 'paste' ],
+\             [ 'readonly', 'filename', 'modified', ] ],
+\     'right': [ [ 'lineinfo' ],
+\              [ 'percent' ],
+\              [ 'tagbar', 'fileformat', 'fileencoding', 'filetype'] ],
+\   },
+\   'separator': { 'left': '【', 'right': '】' },
+\   'component': {
+\     'lineinfo': '%l\%L [%p%%], %c, %n',
+\     'readonly': '%{&readonly?"\ue0a2":""}',
+\   }
+\ }
 "---------------------------------------
 " Mudar cor da barra de status dependendo do modo
 "---------------------------------------
@@ -97,7 +96,7 @@ endif
 " Configura linhas, colunas
 "---------------------------------------
 "set lines=42 columns=80
-"set wildmenu
+set wildmenu
 "---------------------------------------
 " Defina o <space> como tecla líder
 "---------------------------------------
@@ -133,44 +132,27 @@ set shortmess+=I
 "---------------------------------------
 let g:tab = 'tab2'
 "---------------------------------------
-" Flag DrawIt
-"---------------------------------------
-let g:di = 'stop'
-"---------------------------------------
-" Ativa e Desativa DrawIt
-"---------------------------------------
-function! ToggleDrawIt()
-  if g:di=='stop'
-    :DIstart
-    let g:di='start'
-  else
-    :DIstop
-    let g:di='stop'
-  endif
-endfunction
-nmap <silent><leader>u :call ToggleDrawIt()<cr>:echo g:di<cr>
-"---------------------------------------
 " Tab 2<->4
 "---------------------------------------
 function! ToggleTab()
   if g:tab=='tab2'
-		set tabstop=4
-		set shiftwidth=4
-		set softtabstop=4
-		let g:tab='tab4'
+    set tabstop=4
+    set shiftwidth=4
+    set softtabstop=4
+    let g:tab='tab4'
   else
-		set tabstop=2
-		set shiftwidth=2
-		set softtabstop=2
-		let g:tab='tab2'
+    set tabstop=2
+    set shiftwidth=2
+    set softtabstop=2
+    let g:tab='tab2'
   endif
 endfunction
-nmap <silent><leader>t :call ToggleTab()<cr>:echo g:tab<cr>
+nmap <silent><leader>g :call ToggleTab()<cr>:echo g:tab<cr>
 "---------------------------------------
 " Multiple Cursors
 " https://github.com/terryma/vim-multiple-cursors#installation
 "---------------------------------------
-"As ligações de teclas, desative-as e reatribua-as da maneira que desejar:
+" As ligações de teclas, desative-as e reatribua-as da maneira que desejar:
 "let g:multi_cursor_use_default_mapping=0
 " Default mapping
 "let g:multi_cursor_start_word_key      = '<C-n>'
@@ -208,6 +190,7 @@ if has('autocmd')
   autocmd FileType javascript set complete-=k/home/$USER/.vim/doc/js-list.txt complete+=k/home/$USER/.vim/doc/js-list.txt
   autocmd FileType php set complete-=k/home/$USER/.vim/doc/php-list.txt complete+=k/home/$USER/.vim/doc/php-list.txt
   autocmd FileType css set complete-=k/home/$USER/.vim/doc/css-list.txt complete+=k/home/$USER/.vim/doc/css-list.txt
+  autocmd FileType nim :set expandtab
 endif
 set omnifunc=syntaxcomplete#Complete
 au FileType python set omnifunc=pythoncomplete#Complete
@@ -220,9 +203,9 @@ au FileType c set omnifunc=ccomplete#Complete
 " adiciona omnifunc para demais formatos
 if has("autocmd") && exists("+omnifunc")
   autocmd Filetype *
-  \  if &omnifunc == "" |
-  \    setlocal omnifunc=syntaxcomplete#Complete |
-  \  endif
+  \ if &omnifunc == "" |
+  \  setlocal omnifunc=syntaxcomplete#Complete |
+  \ endif
 endif
 "nmap <leader>a <c-x> <c-o>
 setlocal sm " Destaca Abertura e fechamento {} [] ()
@@ -237,7 +220,6 @@ au BufRead,BufNewFile *.ts set filetype=javascript
 au BufRead,BufNewFile *.go set filetype=go
 au BufRead,BufNewFile *.exs setf erlang
 au BufRead,BufNewFile *.ex setf erlang
-au BufRead,BufNewFile *.nim setf nim
 "---------------------------------------
 " Remover barra de menu, barra rolagem e etc do gVim
 "---------------------------------------
@@ -278,6 +260,17 @@ set tabstop=2 " tab = 2 brancos
 set shiftwidth=2 " Quando o autoindent faz um tab, ele é do tamanho de 2
 set softtabstop=2 " Tecla Backspace volta 2 espaços quando estiver numa identação
 set noexpandtab " set expandtab "cria espaços no lugar de tabulação
+let g:status_tab = 'tab'
+function! ToggleStatusTab()
+  if g:status_tab=='tab'
+    set expandtab
+    let g:status_tab = 'space'
+  else
+    set noexpandtab
+    let g:status_tab = 'tab'
+  endif
+endfunction
+nmap <silent><leader>t :call ToggleStatusTab()<cr>:echo g:status_tab<cr>
 "set nowrap  " Sem wrap (quebra de linha)
 "---------------------------------------
 " permite indentar bloco de texto selecionado usando 'tab'
@@ -289,7 +282,8 @@ nmap <s-tab> <lt><lt>
 vmap <tab> >>
 vmap <s-tab> <lt>
 "---------------------------------------
-" Abre uma nova aba
+" Atalhos Abas
+" 'Ctrl+t' abre uma nova aba
 "---------------------------------------
 imap <c-t> <esc>:tabnew<cr>
 nmap <c-t> :tabnew<cr>
@@ -313,32 +307,6 @@ set selectmode=mouse,key
 set mousemodel=popup
 set keymodel=startsel,stopsel
 set selection=exclusive
-"---------------------------------------
-"NERDTree : https://github.com/preservim/nerdtree
-"---------------------------------------
-"---------------------------------------
-" Atalho p/ sidebar de navegação (plugin NERDTree)
-"---------------------------------------
-nmap <leader>n :NERDTreeToggle<cr>
-"nerdtree - configurações básicas
-let NERDTreeShowHidden = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeIgnore = []
-let NERDTreeStatusline = ''
-"nerdtree-git-plugin
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
 "---------------------------------------
 " Mostra ou não a identacão
 "---------------------------------------
@@ -406,7 +374,7 @@ nmap <leader>; :center<cr>
 "---------------------------------------
 " Emmet
 "---------------------------------------
-"imap <leader>e <c-y>,
+nmap <leader>e <c-y>,
 "---------------------------------------
 " Retira os ^M que ficam no final de arquivos salvos pelo windows.
 "---------------------------------------
@@ -423,25 +391,11 @@ nmap <leader>b :let @/=""<cr>
 " Recarrega o arquivo de configuração
 "---------------------------------------
 nmap <leader>v :source $MYVIMRC<cr>
-"imap <leader>v <esc>:source $MYVIMRC<cr>
 "---------------------------------------
 " Convert <tab> em <spaces> e vice-versa
 "---------------------------------------
 nmap <leader>[ :set expandtab<cr> :retab<cr>
-"imap <leader>[ <esc>:set expandtab<cr> :retab<cr>
 nmap <leader>] :%s/\s\{2,}/\t/g<cr>
-"imap <leader>] <esc>:%s/\s\{2,}/\t/g<cr>
-"---------------------------------------
-" Abrir, Salvar Como..., Localizar e substituir no arquivo
-"---------------------------------------
-nmap <leader>o :browse confirm e<cr>
-nmap <leader>w :browse confirm saveas<cr>
-nmap <leader>f :promptfind<cr>
-nmap <leader>r :promptrepl<cr>
-"imap <leader>o <esc>:browse confirm e<cr>
-"imap <leader>w <esc>:browse confirm saveas<cr>
-"imap <leader>f <esc>:promptfind<cr>
-"imap <leader>r <esc>:promptrepl<cr>
 "---------------------------------------
 " Mapeia a tecla \c para compilar o programa em C
 "---------------------------------------
@@ -455,15 +409,14 @@ nmap <leader>r :promptrepl<cr>
 "---------------------------------------
 " mostra o inicio de um bloco recem fechado {}, [], ()
 "---------------------------------------
-set sn
+" set sn
 "---------------------------------------
-" Outra forma de pular fora dos parênteses, colchetes e chaves, mover o cursor
-" no modo insert
+" Movimentando o cursor
 "---------------------------------------
-imap <m-l> <right>
-imap <m-h> <left>
-imap <m-[> <up>
-imap <m-]> <down>
+imap <M-h> <left>
+imap <M-j> <down>
+imap <M-k> <up>
+imap <M-l> <right>
 "---------------------------------------
 " Habilita auto-indentação
 "---------------------------------------
@@ -482,7 +435,7 @@ function! MoveUp()
     exec "'<,'>d"
     exec "normal kP"
     exec "normal " . (start-1) . "GV" . (end-1) . "G"
-  else
+    else
     exec "normal " . (start) . "GV" . (end) . "G"
   endif
 endfunction
@@ -541,6 +494,21 @@ iab a. ª
 iab o. º
 iab no. nº
 iab No. Nº
+iab 1a. 1ª
+iab 2a. 2ª
+iab 3a. 3ª
+iab 4a. 4ª
+iab 5a. 5ª
+iab 6a. 6ª
+iab 7a. 7ª
+iab 8a. 8ª
+iab 9a. 9ª
+iab 10a. 10ª
+iab 11a. 11ª
+iab 12a. 12ª
+iab 13a. 13ª
+iab 14a. 14ª
+iab 15a. 15ª
 "---------------------------------------
 " Habilitar área de transferência do sistema
 "---------------------------------------
@@ -552,41 +520,41 @@ set clipboard=unnamedplus " No Linux
 "if has('unnamedplus')
 "  set clipboard=unnamed,unnamedplus
 "endif
-"-----------------------------------------
+"---------------------------------------
 " Modifica o comportamento do menu de
 " auto-completar para se comportar mais como
 " uma IDE.
-"-----------------------------------------
+"---------------------------------------
 set completeopt=noinsert,menuone,noselect
-"-----------------------------------------
+"---------------------------------------
 " Destaca a linha atual no editor.
-"-----------------------------------------
+"---------------------------------------
 set cursorline
-"-----------------------------------------
+"---------------------------------------
 " Esconde buffers1 não usados.
-"-----------------------------------------
+"---------------------------------------
 set hidden
-"-----------------------------------------
+"---------------------------------------
 " Mostra as linhas a partir da atual. Útil
 " para auxiliar em comandos que usam mais
 " linhas.
-"-----------------------------------------
+"---------------------------------------
 "set relativenumber
-"-----------------------------------------
+"---------------------------------------
 " configura o comportamento da divisão da
 " tela com o comando :split (dividir a tela
 " horizontalmente) e :vsplit (verticalmente).
 " Neste caso, as telas sempre se dividirão
 " abaixo da tela atual e à direita.
-"-----------------------------------------
+"---------------------------------------
 set splitbelow splitright
-"-----------------------------------------
+"---------------------------------------
 " Mostra o título do arquivo
-"-----------------------------------------
+"---------------------------------------
 set title
-"-----------------------------------------
+"---------------------------------------
 " Tempo e milissegundos para aceitar comandos.
-"-----------------------------------------
+"---------------------------------------
 set ttimeoutlen=0
 "---------------------------------------
 "<Ctrl-X> -- cut (goto visual mode and cut)
@@ -622,6 +590,7 @@ xmap <c-a> <c-c>ggVG
 map <c-a> <esc>ggvG
 "---------------------------------------
 " VIM-PLUG (https://github.com/junegunn/vim-plug)
+"---------------------------------------
 call plug#begin('~/.vim/plugged')
 	"---------------------------------------
 	" Appearance
@@ -634,29 +603,78 @@ call plug#begin('~/.vim/plugged')
 	"---------------------------------------
 	Plug 'mattn/emmet-vim'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'Townk/vim-autoclose'
 	"Plug 'ervandew/supertab'
-	Plug 'vim-scripts/DrawIt'
 	Plug 'MarcWeber/vim-addon-mw-utils'
 	Plug 'tomtom/tlib_vim'
 	Plug 'garbas/vim-snipmate'
+	Plug 'sheerun/vim-polyglot'
 	Plug 'preservim/nerdtree'
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'ap/vim-css-color'
 	Plug 'thaerkh/vim-indentguides'
+	Plug 'vim-scripts/DrawIt'
 	"---------------------------------------
 	" Completion / linters / formatters
 	"---------------------------------------
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
+	Plug 'artur-shaik/vim-Javacomplete2'
+	Plug 'majutsushi/tagbar'
 	Plug 'dense-analysis/ale'
 	Plug 'prabirshrestha/vim-lsp'
 	Plug 'alaviss/nim.nvim'
 call plug#end()
 "---------------------------------------
-" ALE
+" DrawIt {{{
+"---------------------------------------
+" Flag
+let g:di = 'stop'
+function! ToggleDrawIt()
+  if g:di=='stop'
+    :DIstart
+    let g:di='start'
+  else
+    :DIstop
+    let g:di='stop'
+  endif
+endfunction
+nmap <silent><leader>u :call ToggleDrawIt()<cr>:echo g:di<cr>
+" }}}
+"---------------------------------------
+"NERDTree {{{
+"---------------------------------------
+nmap <leader>n :NERDTreeToggle<cr>
+let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeIgnore = []
+let NERDTreeStatusline = ''
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+\ "Modified"  : "✹",
+\ "Staged"    : "✚",
+\ "Untracked" : "✭",
+\ "Renamed"   : "➜",
+\ "Unmerged"  : "═",
+\ "Deleted"   : "✖",
+\ "Dirty"     : "✗",
+\ "Clean"     : "✔︎",
+\ 'Ignored'   : '☒',
+\ "Unknown"   : "?"
+\ }
+" }}}
+"---------------------------------------
+" Ale {{{
 "---------------------------------------
 let g:ale_completion_enabled = 1
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
+" Configurar compiladores para linguagens
+let g:ale_linters = {
+\  'cs':['syntax', 'semantic', 'issues'],
+\  'python': ['pylint'],
+\  'java': ['javac']
+\}
 "let g:ale_linters = {
 "\   'javascript': ['eslint'],
 "\}
@@ -666,15 +684,48 @@ let g:ale_sign_warning = '⚠️'
 "\}
 "
 "let g:ale_fix_on_save = 1
+" }}}
+"---------------------------------------
+" SnipMate {{{
 "---------------------------------------
 " Para usar a versão mais atual do analisador
-"---------------------------------------
 let g:snipMate = { 'snippet_version': 1 }
+imap <c-j> <Plug>snipMateNextOrTrigger
+" }}}
 "---------------------------------------
 filetype indent off
 filetype plugin off
 "---------------------------------------
-" Folding/Unfolding
+" Deoplete {{{
+"---------------------------------------
+" Não se esqueça de iniciar o deoplete
+" let g:deoplete#enable_at_startup = 1 'Menos spam
+" let g:deoplete#auto_complete_start_length = 2
+let g:deoplete#enable_at_startup = 1
+" Use TAB como mapeamento
+inoremap <silent><expr> <TAB>
+\ pumvisible() ?  "\<C-n>" :
+\ <SID>check_back_space() ? "\<TAB>" :
+\ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "" {{{
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction "" }}}
+" }}}
+"---------------------------------------
+" Vim-Javacomplete2 {{{
+"---------------------------------------
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+autocmd FileType java JCEnable
+" }}}
+"---------------------------------------
+" TagBar {{{
+"---------------------------------------
+" Ctrl-b to open Tagbar
+map <c-b> :TagbarToggle<CR>
+" }}}
+"---------------------------------------
+" Folding / Unfolding {{{
 "---------------------------------------
 setlocal foldmethod=indent
 set nofoldenable
@@ -689,8 +740,9 @@ function! CustomFoldText()
 	let expansionString = repeat(" ", indentation)
 	return expansionString . foldLevelStr . foldSizeStr
 endfunction
+" }}}
 "---------------------------------------
-" Cor da numeração lateral
+" Cor da numeração lateral {{{
 "---------------------------------------
 "hi LineNr guifg=blue ctermfg=lightBlue
 "hi LineNr guifg=green ctermfg=lightGreen
@@ -698,3 +750,4 @@ endfunction
 "hi LineNr guifg=pink ctermfg=lightPink
 "hi LineNr guifg=magenta ctermfg=lightPink
 hi LineNr guifg=#ffffff ctermfg=lightCyan
+" }}}

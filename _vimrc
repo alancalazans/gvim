@@ -616,11 +616,6 @@ call plug#begin('~/.vim/plugged')
 	"---------------------------------------
 	" Completion / linters / formatters
 	"---------------------------------------
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'roxma/nvim-yarp'
-	Plug 'roxma/vim-hug-neovim-rpc'
-	Plug 'artur-shaik/vim-Javacomplete2'
-	Plug 'majutsushi/tagbar'
 	Plug 'dense-analysis/ale'
 	Plug 'prabirshrestha/vim-lsp'
 	Plug 'alaviss/nim.nvim'
@@ -664,17 +659,11 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 \ }
 " }}}
 "---------------------------------------
-" Ale {{{
+" ALE {{{
 "---------------------------------------
 let g:ale_completion_enabled = 1
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
-" Configurar compiladores para linguagens
-let g:ale_linters = {
-\  'cs':['syntax', 'semantic', 'issues'],
-\  'python': ['pylint'],
-\  'java': ['javac']
-\}
 "let g:ale_linters = {
 "\   'javascript': ['eslint'],
 "\}
@@ -690,40 +679,11 @@ let g:ale_linters = {
 "---------------------------------------
 " Para usar a versão mais atual do analisador
 let g:snipMate = { 'snippet_version': 1 }
-imap <c-j> <Plug>snipMateNextOrTrigger
-" }}}
+"imap <c-j> <Plug>snipMateNextOrTrigger
 "---------------------------------------
+" }}}
 filetype indent off
 filetype plugin off
-"---------------------------------------
-" Deoplete {{{
-"---------------------------------------
-" Não se esqueça de iniciar o deoplete
-" let g:deoplete#enable_at_startup = 1 'Menos spam
-" let g:deoplete#auto_complete_start_length = 2
-let g:deoplete#enable_at_startup = 1
-" Use TAB como mapeamento
-inoremap <silent><expr> <TAB>
-\ pumvisible() ?  "\<C-n>" :
-\ <SID>check_back_space() ? "\<TAB>" :
-\ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "" {{{
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction "" }}}
-" }}}
-"---------------------------------------
-" Vim-Javacomplete2 {{{
-"---------------------------------------
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-autocmd FileType java JCEnable
-" }}}
-"---------------------------------------
-" TagBar {{{
-"---------------------------------------
-" Ctrl-b to open Tagbar
-map <c-b> :TagbarToggle<CR>
-" }}}
 "---------------------------------------
 " Folding / Unfolding {{{
 "---------------------------------------

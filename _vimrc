@@ -11,10 +11,10 @@
 "▐░░░░░░░░░░░▌        ▐░▌        ▐░░░░░░░░░░░▌▐░▌       ▐░▌
 " ▀▀▀▀▀▀▀▀▀▀▀          ▀          ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀
 "---------------------------------------
-" File: .vimrc ou _vimrc
+" File: .vimrc
 " Author: Alan Calazans <alancalazans@hotmail.com.br>
 " Created: Sex 30 Abr 2021
-" Updated: Seg 16 Out 2023
+" Updated: Seg 17 Out 2023
 " Installation: - As dotfile drop the file into your $HOME/ folder
 " License: GNU General Public License v3
 "          <http://www.gnu.org/licenses/gpl.html>

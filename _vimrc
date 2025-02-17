@@ -335,6 +335,11 @@ vmap <bs> d
 nmap <c-s> :update<cr>
 vmap <c-s> <c-c>:update<cr>
 imap <c-s> <c-o>:update<cr>
+"---------------------------------
+"--- Ao salvar remover espaços ---
+"--- e tabs de fim de linha.   ---
+"---------------------------------
+autocmd BufWritePre * :%s/\s\+$//e
 "---------------------
 "--- CTRL-Z desfaz ---
 "---------------------

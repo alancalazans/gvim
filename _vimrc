@@ -95,13 +95,13 @@ if has('gui_running')
 	if has('win32')  " Verifica se está rodando no Windows
 		set guifont=Consolas:h12
 	else
-		set guifont=FuraMono\ Nerd\ Font\ Mono\ 12
+		set guifont=MonoLisa\ Medium\ 12
 	endif
 else
 	if has('win32')  " Verifica se está rodando no Windows
 		set guifont=Consolas:h12
 	else
-		set guifont=FuraMono\ Nerd\ Font\ Mono\ 12
+		set guifont=MonoLisa\ Medium\ 12
 	endif
 endif
 "---------------------------------
@@ -589,7 +589,7 @@ map <c-a> <esc>ggvG
 "-------------------------------------------------------
 "--- VIM-PLUG (https://github.com/junegunn/vim-plug) ---
 "-------------------------------------------------------
-call plug#begin('~/.config/vim/plugged')
+call plug#begin('~/.vim/plugged')
 	"-------------------
 	"--- Appearance ---
 	"------------------
@@ -745,4 +745,3 @@ endfunction
 "hi LineNr guifg=magenta ctermfg=lightPink
 hi LineNr guifg=#ffffff ctermfg=lightCyan
 "--- }}}
-

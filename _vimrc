@@ -13,17 +13,12 @@
 "---------------------------------------------
 " File: .vimrc
 " Author: Alan Calazans <alancalazans@hotmail.com.br>
-" Created: Sex 16 Jan 2025
-" Updated: Sex 16 Jan 2025
-" Installation: As dotfile drop the file into your $HOME/.config/nvim/ folder
+" Created: dom 02 mai 2021
+" Updated: ter 10 jun 2025
+" Installation: How dotfile drop this file user directory $HOME/.vimrc
 " License: GNU General Public License v3
 " <http://www.gnu.org/licenses/gpl.html>
 " Version: 1.0
-" Notes: Based on the file:
-" .vimrc (1.0) made by Ivan Carlos da Silva Lopes
-" .vimrc made by Aurelio Marinho Jarga (verde)
-" .vimrc made by Sérgio Luiz Araújo Silva  (voyeg3r) and
-" .vimrc made by J. F. Mitre <jfmitre (at) gmail.com>
 "-----------------------
 "--- Suporte a cores ---
 "-----------------------

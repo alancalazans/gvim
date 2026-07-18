@@ -15,9 +15,9 @@
 " Author: Alan Calazans <alancalazans@hotmail.com.br>
 " Created: dom 02 mai 2021
 " Updated: sex 17 jul 2026
-" Installation: Place this file in ~/.vimrc
+" Installation: Place this file in ~/.config/nvim/
 " or
-" Installation: Place this file in 'C:\Program Files\Vim\_vimrc'
+" Installation: Place this file in ~\AppData\Local\nvim\
 " License: GNU General Public License v3
 " <http://www.gnu.org/licenses/gpl.html>
 "-----------------------
@@ -94,9 +94,22 @@
 "--- Configuração de fonte ---
 "-----------------------------
 " {{{
-	" NeoVim em terminal não usa guifont (a fonte é do emulador de terminal).
-	" Se usar um frontend GUI como Neovide, descomente e ajuste:
-	set guifont=MonoLisa\ Medium:h12
+" Fontes instaladas por fora:
+" Monolisa_Medium:h12:W500:cANSI:qDRAFT
+" Hack_Nerd_Font_Mono:h12:cANSI:qDRAFT
+if has('gui_running')
+	if has('win32')  " Verifica se está rodando no Windows
+		set guifont=Consolas:h12
+"	else
+"		set guifont=MonoLisa\ Medium\ 12
+	endif
+else
+	if has('win32')  " Verifica se está rodando no Windows
+		set guifont=Consolas:h12
+"	else
+"		set guifont=MonoLisa\ Medium\ 12
+	endif
+endif
 " }}}
 "---------------------------------
 "--- Configura linhas, colunas ---
@@ -737,7 +750,18 @@
 "--- A primeira linha refere-se ao esquema padrão ---
 "----------------------------------------------------
 " {{{
-	colorscheme molokai
+	let s:colorscheme_file = expand('~') . '\vimfiles\colorscheme_persist.txt'
+	if filereadable(s:colorscheme_file)
+		let s:last_scheme = readfile(s:colorscheme_file)[0]
+		execute 'silent! colorscheme ' . s:last_scheme
+	else
+		silent! colorscheme molokai
+	endif
+
+	function! PersistColorscheme()
+		call writefile([g:colors_name], s:colorscheme_file)
+	endfunction
+
 	function! ToggleColorscheme()
 		if g:colors_name == 'molokai'
 			colorscheme spacecamp
@@ -749,6 +773,7 @@
 			colorscheme molokai
 		endif
 		hi LineNr guifg=#ffffff ctermfg=lightCyan
+		call PersistColorscheme()
 	endfunction
 	nmap <silent><leader>/ :call ToggleColorscheme()<cr>:echo g:colors_name<cr>
 " }}}
